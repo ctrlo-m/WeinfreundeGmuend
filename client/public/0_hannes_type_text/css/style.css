@@ -1,10 +1,16 @@
 body {
     padding: 0;
     margin: 0;
+    /* background-color: #1c1c1c; */
 }
 
 strong {
     color: green;
+}
+
+#header {
+    display: block;
+    height: 100px;
 }
 
 div.container {
@@ -15,7 +21,7 @@ div.container {
 
 div.column {
     display: inline-block;
-    margin: 20px 20px 20px auto;
+    margin: 20px 19px 20px 19px;
     width: 600px;
     height: 800px;
 }
@@ -23,7 +29,7 @@ div.column {
 #box1 {
     display: inline-block;
     background-color: aquamarine;
-    margin: 20px 20px 20px auto;
+    margin: 20px 19px 20px 19px;
     height: 200px;
     width: 600px;
 }
@@ -31,7 +37,13 @@ div.column {
 #box2 {
     display: inline-block;
     background-color: chocolate;
-    margin: 20px 20px 20px auto;
+    margin: 20px 19px 20px 19px;
     height: 200px;
     width: 600px;
+}
+
+p {
+    font-family:'Roboto', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
 }
