@@ -11,11 +11,28 @@ let myColor = "hsl(" + randomHue + ", 100%, 50%)";
 
 let textfeld1 = document.getElementById("textfeld1");
 let textfeld2 = document.getElementById("textfeld2");
+let column1 = document.getElementById("column1");
+let column2 = document.getElementById("column2");
+let box1 = document.getElementById("box1");
+let box2 = document.getElementById("box2");
 
 let actTextfeld = textfeld1;
 
-textfeld2.addEventListener("click", function(e) {
+column1.addEventListener("click", function(e) {
+  actTextfeld = textfeld1;
+  
+});
+column2.addEventListener("click", function(e) {
   actTextfeld = textfeld2;
+});
+
+box1.addEventListener("click", function(e) {
+    let x = Math.round(Math.random() * 360);
+    let y = Math.round(Math.random() * 100);
+    console.log(y)
+    let boxColor = "hsl(" + x + ", " + y + "%, 70%)";
+    console.log(boxColor)
+    box1.style.backgroundColor = boxColor;
 });
 
 window.addEventListener("keydown", keydownHandler);
