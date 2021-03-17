@@ -8,6 +8,8 @@ socket.on('connected', function (msg) {
 // Your script starts here ------------------------------------------------------
 let randomHue = Math.round(Math.random() * 360);
 let myColor = "hsl(" + randomHue + ", 100%, 50%)";
+let boxColor1
+let boxColor2
 
 let textfeld1 = document.getElementById("textfeld1");
 let textfeld2 = document.getElementById("textfeld2");
@@ -29,10 +31,16 @@ column2.addEventListener("click", function(e) {
 box1.addEventListener("click", function(e) {
     let x = Math.round(Math.random() * 360);
     let y = Math.round(Math.random() * 100);
-    console.log(y)
-    let boxColor = "hsl(" + x + ", " + y + "%, 70%)";
-    console.log(boxColor)
-    box1.style.backgroundColor = boxColor;
+    boxColor1 = "hsl(" + x + ", " + y + "%, 70%)";
+    
+    socket.emit('serverEvent', {backgroundColor: boxColor1})
+});
+box2.addEventListener("click", function(e) {
+    let x = Math.round(Math.random() * 360);
+    let y = Math.round(Math.random() * 100);
+    boxColor2 = "hsl(" + x + ", " + y + "%, 70%)";
+
+    socket.emit('serverEvent', {backgroundColor: boxColor2})
 });
 
 window.addEventListener("keydown", keydownHandler);
@@ -48,6 +56,14 @@ function keydownHandler(e) {
 // Incoming events 
 socket.on('serverEvent', function (message) {
     console.log("Incoming event: ", message);
+
+    if (message.backgroundColor == boxColor1) {
+        box1.style.backgroundColor = boxColor1;
+    }
+
+    if (message.backgroundColor == boxColor2) {
+        box2.style.backgroundColor = boxColor2;
+    }
 
     if (message.key.length == 1) {
         // If it's a single letter -> create new span element and text
