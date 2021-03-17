@@ -1,0 +1,44 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+strong {
+    color: green;
+}
+
+div.container {
+    display: block;
+    width: 1280px;
+    margin: auto auto;
+}
+
+div.column {
+    display: inline-block;
+    margin: 20px 20px 20px auto;
+    width: 600px;
+    height: 800px;
+}
+
+
+#box1 {
+    display: inline-block;
+    background-color: aquamarine;
+    margin: 20px 20px 20px auto;
+    height: 200px;
+    width: 600px;
+}
+
+#box2 {
+    display: inline-block;
+    background-color: chocolate;
+    margin: 20px 20px 20px auto;
+    height: 200px;
+    width: 600px;
+}
+
+textarea{
+    border: 1px solid#888;
+    outline: none; 
+    resize: none; 
+}
