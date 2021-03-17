@@ -10,6 +10,13 @@ let randomHue = Math.round(Math.random() * 360);
 let myColor = "hsl(" + randomHue + ", 100%, 50%)";
 
 let textfeld1 = document.getElementById("textfeld1");
+let textfeld2 = document.getElementById("textfeld2");
+
+let actTextfeld = textfeld1;
+
+textfeld2.addEventListener("click", function(e) {
+  actTextfeld = textfeld2;
+});
 
 window.addEventListener("keydown", keydownHandler);
 
@@ -32,15 +39,15 @@ socket.on('serverEvent', function (message) {
         newSpan.style.color = message.color;
         let newLetter = document.createTextNode(message.key);
         newSpan.appendChild(newLetter);
-        textfeld1.appendChild(newSpan);
+        actTextfeld.appendChild(newSpan);
     
     } else {
         // Otherwise it's some kind of special letter like Enter or Backspace
 
         if (message.key == "Backspace") {
-            let lastIndex = textfeld1.childNodes.length - 1;
+            let lastIndex = actTextfeld.childNodes.length - 1;
             if (lastIndex >= 0) {
-                textfeld1.childNodes[lastIndex].remove();
+                actTextfeld.childNodes[lastIndex].remove();
             }
         }
     }
