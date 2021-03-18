@@ -11,20 +11,27 @@ let myColor = "hsl(" + randomHue + ", 100%, 50%)";
 let boxColor1
 let boxColor2
 
+let headline1 = document.getElementById("headline1")
+let headline2 = document.getElementById("headline2")
 let textfeld1 = document.getElementById("textfeld1");
 let textfeld2 = document.getElementById("textfeld2");
-let column1 = document.getElementById("column1");
-let column2 = document.getElementById("column2");
+let colP1 = document.getElementById("col-p1");
+let colP2 = document.getElementById("col-p2");
 let box1 = document.getElementById("box1");
 let box2 = document.getElementById("box2");
 
 let actTextfeld = textfeld1;
 
-column1.addEventListener("click", function(e) {
-  actTextfeld = textfeld1;
-  
+headline1.addEventListener("click", function(e) {
+    actTextfeld = headline1;
 });
-column2.addEventListener("click", function(e) {
+headline2.addEventListener("click", function(e) {
+    actTextfeld = headline2;
+});
+colP1.addEventListener("click", function(e) {
+  actTextfeld = textfeld1;
+});
+colP2.addEventListener("click", function(e) {
   actTextfeld = textfeld2;
 });
 
@@ -64,7 +71,9 @@ socket.on('serverEvent', function (message) {
     console.log("Incoming event: ", message);
 
     if (message.backgroundColor == boxColor1) {
+        console.log(box1.style.backgroundColor);
         box1.style.backgroundColor = boxColor1;
+        console.log(box1.style.backgroundColor);
     }
 
     if (message.backgroundColor == boxColor2) {
