@@ -12,31 +12,19 @@ let myColor = "hsl(" + randomHue + ", 100%, 50%)";
 let textfeld1 = document.getElementById("textfeld1");
 let textfeld2 = document.getElementById("textfeld2");
 let box1 = document.getElementById("box1");
-let bild = new Array() 
-let random = Math.round(Math.random() *2);
+
+
 
 let actTextfeld = textfeld1;
 
-function preload() {
-
-    for(i = 0; i < preload.arguments.length; i++) {
-        bild[i] = new Image()
-        bild[i].src = preload.arguments[i]
-
-    }
-
-
-}
-
-    preload(
-        "/Users/carlomailander/Documents/GitHub/WeinfreundeGmuend/client/public/0_Carlo_Bilder/Bild1.jpg",
-        "/Users/carlomailander/Documents/GitHub/WeinfreundeGmuend/client/public/0_Carlo_Bilder/Bild2.jpg"
-    )
 
 
 box1.addEventListener("click", function(e){
 
+    let bild = "url('Bild1.jpg')"
 
+    box1.style.backgroundImage = bild;
+    console.log("Klick")
 });
 
 textfeld2.addEventListener("click", function(e) {

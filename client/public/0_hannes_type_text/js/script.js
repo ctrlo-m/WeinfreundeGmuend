@@ -26,6 +26,7 @@ column2.addEventListener("click", function(e) {
   actTextfeld = textfeld2;
 });
 
+//<<<<<<< Updated upstream
 box1.addEventListener("click", function(e) {
     let x = Math.round(Math.random() * 360);
     let y = Math.round(Math.random() * 100);
@@ -34,6 +35,11 @@ box1.addEventListener("click", function(e) {
     console.log(boxColor)
     box1.style.backgroundColor = boxColor;
 });
+//=======
+textfeld1.addEventListener("click", function(e) {
+    actTextfeld = textfeld1;
+  });
+//>>>>>>> Stashed changes
 
 window.addEventListener("keydown", keydownHandler);
 

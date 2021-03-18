@@ -43,7 +43,8 @@ div.column {
 
 #box1 {
     display: inline-block;
-    background-color: aquamarine;
+    /* background-color:blue; */
+    background-image: image();
     margin: 20px 19px 20px 19px;
     height: 200px;
     width: 600px;
