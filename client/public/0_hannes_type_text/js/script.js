@@ -8,8 +8,6 @@ socket.on('connected', function (msg) {
 // Your script starts here ------------------------------------------------------
 let randomHue = Math.round(Math.random() * 360);
 let myColor = "hsl(" + randomHue + ", 100%, 50%)";
-let boxColor1
-let boxColor2
 
 let headline1 = document.getElementById("headline1")
 let headline2 = document.getElementById("headline2")
@@ -39,16 +37,16 @@ colP2.addEventListener("click", function(e) {
 box1.addEventListener("click", function(e) {
     let x = Math.round(Math.random() * 360);
     let y = Math.round(Math.random() * 100);
-    boxColor1 = "hsl(" + x + ", " + y + "%, 70%)";
+    boxColor = "hsl(" + x + ", " + y + "%, 70%)";
     
-    socket.emit('serverEvent', {type:'colorChange', backgroundColor: boxColor1})
+    socket.emit('serverEvent', {type:'colorChange', boxID: 1, backgroundColor: boxColor})
 });
 box2.addEventListener("click", function(e) {
     let x = Math.round(Math.random() * 360);
     let y = Math.round(Math.random() * 100);
-    boxColor2 = "hsl(" + x + ", " + y + "%, 70%)";
+    boxColor = "hsl(" + x + ", " + y + "%, 70%)";
 
-    socket.emit('serverEvent', {type:'colorChange', backgroundColor: boxColor2})
+    socket.emit('serverEvent', {type:'colorChange', boxID: 2, backgroundColor: boxColor})
 });
 //=======
 textfeld1.addEventListener("click", function(e) {
@@ -71,14 +69,7 @@ socket.on('serverEvent', function (message) {
     console.log("Incoming event: ", message);
 
     if (message.type == 'colorChange'){
-        
-        if (message.backgroundColor == boxColor1) {
-            box1.style.backgroundColor = message.backgroundColor;
-        }
-
-        if (message.backgroundColor == boxColor2) {
-            box2.style.backgroundColor = message.backgroundColor;
-        }
+        document.getElementById("box"+message.boxID).style.backgroundColor = message.backgroundColor;
     }
 
     if (message.type == 'keyPressed'){
