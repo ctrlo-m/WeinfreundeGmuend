@@ -41,14 +41,14 @@ box1.addEventListener("click", function(e) {
     let y = Math.round(Math.random() * 100);
     boxColor1 = "hsl(" + x + ", " + y + "%, 70%)";
     
-    socket.emit('serverEvent', {backgroundColor: boxColor1})
+    socket.emit('serverEvent', {type:'colorChange', backgroundColor: boxColor1})
 });
 box2.addEventListener("click", function(e) {
     let x = Math.round(Math.random() * 360);
     let y = Math.round(Math.random() * 100);
     boxColor2 = "hsl(" + x + ", " + y + "%, 70%)";
 
-    socket.emit('serverEvent', {backgroundColor: boxColor2})
+    socket.emit('serverEvent', {type:'colorChange', backgroundColor: boxColor2})
 });
 //=======
 textfeld1.addEventListener("click", function(e) {
@@ -63,41 +63,45 @@ function keydownHandler(e) {
     e.preventDefault();
 
     // Sending an event
-    socket.emit('serverEvent', {key:e.key, color:myColor});
+    socket.emit('serverEvent', {type:'keyPressed', key:e.key, color:myColor});
 }
 
 // Incoming events 
 socket.on('serverEvent', function (message) {
     console.log("Incoming event: ", message);
 
-    if (message.backgroundColor == boxColor1) {
-        console.log(box1.style.backgroundColor);
+    if (message.type == 'colorChange'){
         box1.style.backgroundColor = boxColor1;
-        console.log(box1.style.backgroundColor);
-    }
-
-    if (message.backgroundColor == boxColor2) {
+        // if (message.backgroundColor == boxColor1) {
+        //     box1.style.backgroundColor = boxColor1;
+        // }
         box2.style.backgroundColor = boxColor2;
+        // if (message.backgroundColor == boxColor2) {
+        //     box2.style.backgroundColor = boxColor2;
+        // }
     }
 
-    if (message.key.length == 1) {
-        // If it's a single letter -> create new span element and text
-
-        let newSpan = document.createElement('span');
-        newSpan.style.color = message.color;
-        let newLetter = document.createTextNode(message.key);
-        newSpan.appendChild(newLetter);
-        actTextfeld.appendChild(newSpan);
+    if (message.type == 'keyPressed'){
+        if (message.key.length == 1) {
+            // If it's a single letter -> create new span element and text
     
-    } else {
-        // Otherwise it's some kind of special letter like Enter or Backspace
-
-        if (message.key == "Backspace") {
-            let lastIndex = actTextfeld.childNodes.length - 1;
-            if (lastIndex >= 0) {
-                actTextfeld.childNodes[lastIndex].remove();
+            let newSpan = document.createElement('span');
+            newSpan.style.color = message.color;
+            let newLetter = document.createTextNode(message.key);
+            newSpan.appendChild(newLetter);
+            actTextfeld.appendChild(newSpan);
+        
+        } else {
+            // Otherwise it's some kind of special letter like Enter or Backspace
+    
+            if (message.key == "Backspace") {
+                let lastIndex = actTextfeld.childNodes.length - 1;
+                if (lastIndex >= 0) {
+                    actTextfeld.childNodes[lastIndex].remove();
+                }
             }
         }
     }
+    
 
 });
