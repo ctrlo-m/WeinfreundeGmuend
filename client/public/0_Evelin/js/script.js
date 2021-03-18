@@ -17,6 +17,7 @@ let box1 = document.getElementById("box1");
 let box2 = document.getElementById("box2");
 
 let platzhalter1 = document.getElementById("platzhalter1")
+let platzhalter2 = document.getElementById("platzhalter2")
 
 let actTextfeld = textfeld1;
 
@@ -26,14 +27,13 @@ function anzeigen(das){
     // else document.getElementById(das).style.display='none';
 } 
 
-function anzeigen(das){ 
-    if(document.getElementById(das).style.display=='block') 
-    document.getElementById(das).style.display='none'; 
-    // else document.getElementById(das).style.display='none';
-} 
+
+column1.addEventListener("click", function(e){ 
+    anzeigen('platzhalter1')
+})
 
 column2.addEventListener("click", function(e){ 
-    anzeigen('platzhalter1')
+    anzeigen('platzhalter2')
 })
 
 column1.addEventListener("click", function(e) {
@@ -71,8 +71,7 @@ function keydownHandler(e) {
 socket.on('serverEvent', function (message) {
     console.log("Incoming event: ", message);
 
-    // if (message.key.length == 1) { 
-    // platzhalter1 = "none";}
+  
 
     if (message.key.length == 1) {
         // If it's a single letter -> create new span element and text
