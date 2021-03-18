@@ -71,11 +71,11 @@ socket.on('serverEvent', function (message) {
     console.log("Incoming event: ", message);
 
     if (message.type == 'colorChange'){
-        box1.style.backgroundColor = boxColor1;
+        box1.style.backgroundColor = message.boxColor1;
         // if (message.backgroundColor == boxColor1) {
         //     box1.style.backgroundColor = boxColor1;
         // }
-        box2.style.backgroundColor = boxColor2;
+        box2.style.backgroundColor = message.boxColor2;
         // if (message.backgroundColor == boxColor2) {
         //     box2.style.backgroundColor = boxColor2;
         // }
