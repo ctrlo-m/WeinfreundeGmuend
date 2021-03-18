@@ -12,6 +12,7 @@ let myColor = "hsl(" + randomHue + ", 100%, 50%)";
 let textfeld1 = document.getElementById("textfeld1");
 let textfeld2 = document.getElementById("textfeld2");
 let box1 = document.getElementById("box1");
+let box2 = document.getElementById("box2");
 
 //"url('Bild1.jpg')"
 let bilder = new Array(); 
@@ -34,6 +35,16 @@ box1.addEventListener("click", function(e){
 
     socket.emit('serverEvent', {type:'imageChange', imageIndex:i});
 });
+
+box2.addEventListener("click", function(e){
+
+    let j = Math.round(Math.random() * 2);
+
+    console.log(j)
+
+    socket.emit('serverEvent', {type:'imageChange', imageIndex:j});
+});
+
 
 textfeld2.addEventListener("click", function(e) {
   actTextfeld = textfeld2;
@@ -82,7 +93,7 @@ socket.on('serverEvent', function (message) {
 
     if (message.type == 'imageChange') {
         box1.style.backgroundImage = bilder[message.imageIndex];
- 
+        box1.style.backgroundImage = bilder[message.imageIndex];
     }
 
 });
