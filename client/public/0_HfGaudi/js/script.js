@@ -5,10 +5,21 @@ socket.on('connected', function (msg) {
 });
 
 
-let headline1 = document.getElementById("headline1")
-let headline2 = document.getElementById("headline2")
-let textfeld1 = document.getElementById("textfeld1");
-let textfeld2 = document.getElementById("textfeld2");
+let headline1 = document.getElementById("h1-sub")
+// let headline2 = document.getElementById("col1con1")
+let textfeld1 = document.getElementById("col1con1");
+let textfeld2 = document.getElementById("col1con2");
+
+let textfeld3 = document.getElementById("col2con1");
+let textfeld4 = document.getElementById("col2con2");
+let textfeld5 = document.getElementById("col2con3");
+
+let textfeld6 = document.getElementById("col3con1");
+let textfeld7 = document.getElementById("col3con2");
+
+let textfeld8 = document.getElementById("col3con2");
+
+let textfeld8 = document.getElementById("col3con2");
 // let colP1 = document.getElementById("col-p1");
 // let colP2 = document.getElementById("col-p2");
 let box1 = document.getElementById("box1");
