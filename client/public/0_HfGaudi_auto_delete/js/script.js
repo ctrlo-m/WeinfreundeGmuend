@@ -142,34 +142,37 @@ function anzeigen(a){
 }
 
 col1textfeld1.addEventListener("click", function(e){ 
-    anzeigen("spancol1head1")
+    anzeigen("span-col1-head1")
 })
 col1textfeld2.addEventListener("click", function(e){ 
-    anzeigen("spancol1text1")
+    anzeigen("span-col1-text1")
 })
 col2textfeld1.addEventListener("click", function(e){ 
-    anzeigen("spancol1head1")
+    anzeigen("span-col2-head1")
 })
 col2textfeld2.addEventListener("click", function(e){ 
-    anzeigen("spancol1head1")
+    anzeigen("span-col2-text1")
 })
 col2textfeld3.addEventListener("click", function(e){ 
-    anzeigen("spancol1head1")
+    anzeigen("span-col2-text2")
 })
 col3textfeld1.addEventListener("click", function(e){ 
-    anzeigen("spancol1head1")
+    anzeigen("span-col3-head1")
 })
 col3textfeld2.addEventListener("click", function(e){ 
-    anzeigen("spancol1head1")
+    anzeigen("span-col3-text1")
 })
 col4textfeld1.addEventListener("click", function(e){ 
-    anzeigen("spancol1head1")
+    anzeigen("span-col4-head1")
 })
 col4textfeld2.addEventListener("click", function(e){ 
-    anzeigen("spancol1head1")
+    anzeigen("span-col4-text1")
 })
 col4textfeld3.addEventListener("click", function(e){ 
-    anzeigen("spancol1head1")
+    anzeigen("span-col4-head2")
+})
+col4textfeld4.addEventListener("click", function(e){ 
+    anzeigen("span-col4-text2")
 })
 
 
@@ -219,6 +222,10 @@ function keydownHandler(e) {
 
 // Incoming events 
 socket.on('serverEvent', function (message) {
+
+    if (message.type == 'deleteText') {
+        document.getElementById(XXXXX"XXXXX""PLATZHALTER""XXXXX"XXXXX).style.display = none;
+    }
 
     if (message.type == 'keyPressed') {
 
