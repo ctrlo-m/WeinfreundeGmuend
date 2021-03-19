@@ -39,7 +39,6 @@ let col4text2 = document.getElementById("col4text2")
 let col4bild = document.getElementById("bild4")
 
 
-let actTextfeld = col1text1;
 
 let bilder1 = new Array(); 
 let bilder2 = new Array(); 
@@ -68,6 +67,10 @@ bilder4[2] = "url('Bild4/Bild3_3.png')";
 bilder4[3] = "url('Bild4/Bild3_4.png')";
 
 
+let actTextfeld = col1text1;
+
+
+
 //Textfeld Events
 
 //COL1
@@ -93,6 +96,7 @@ actTextfeld = col2text2;
 col3textfeld1.addEventListener("click", function(e) {
 actTextfeld = col3head;
 });
+
 col3textfeld2.addEventListener("click", function(e) {
 actTextfeld = col3text;
 });
@@ -117,40 +121,41 @@ actTextfeld = col4text2;
 
 
 // Bilder Events
-box1.addEventListener("click", function(e){
+col1bild.addEventListener("click", function(e){
 
-    let i = Math.round(Math.random() * 2);
+    let i = Math.round(Math.random() * 3);
 
     console.log(i)
+    console.log("Bild 1 klick")
 
-    socket.emit('serverEvent', {type:'imageChange', imageIndex:i});
+    socket.emit('serverEvent', {type:'imageChange', bildID: 1 , imageIndex:i});
 });
 
-box2.addEventListener("click", function(e){
+col2bild.addEventListener("click", function(e){
 
-    let j = Math.round(Math.random() * 2);
+    let j = Math.round(Math.random() * 3);
 
     console.log(j)
 
-    socket.emit('serverEvent', {type:'imageChange', imageIndex:j});
+    socket.emit('serverEvent', {type:'imageChange', bildID: 2, imageIndex:j});
 });
 
-box3.addEventListener("click", function(e){
+col3bild.addEventListener("click", function(e){
 
-    let k = Math.round(Math.random() * 2);
+    let k = Math.round(Math.random() * 3);
 
     console.log(k)
 
-    socket.emit('serverEvent', {type:'imageChange', imageIndex:k});
+    socket.emit('serverEvent', {type:'imageChange', bildID: 3, imageIndex:k});
 });
 
-box4.addEventListener("click", function(e){
+col4bild.addEventListener("click", function(e){
 
-    let l = Math.round(Math.random() * 2);
+    let l = Math.round(Math.random() * 3);
 
     console.log(l)
 
-    socket.emit('serverEvent', {type:'imageChange', imageIndex:l});
+    socket.emit('serverEvent', {type:'imageChange', bildID: 4, imageIndex:l});
 });
 
 
@@ -194,10 +199,17 @@ socket.on('serverEvent', function (message) {
     }
 
     if (message.type == 'imageChange') {
-        box1.style.backgroundImage = bilder1[message.imageIndex];
-        box2.style.backgroundImage = bilder2[message.imageIndex];
-        box3.style.backgroundImage = bilder3[message.imageIndex];
-        box4.style.backgroundImage = bilder4[message.imageIndex];
+
+        document.getElementById("col"+message.bildID+"bild").style.backgroundImage = "bilder"+message.bildID[message.imageIndex];
+
+
+
+
+
+    //     .style.backgroundImage = bilder1[message.imageIndex];
+    //     box2.style.backgroundImage = bilder2[message.imageIndex];
+    //     box3.style.backgroundImage = bilder3[message.imageIndex];
+    //     box4.style.backgroundImage = bilder4[message.imageIndex];
     }
 
 });
