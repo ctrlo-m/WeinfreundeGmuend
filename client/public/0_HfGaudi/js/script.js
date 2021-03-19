@@ -47,25 +47,25 @@ let bilder3 = new Array();
 let bilder4 = new Array(); 
 
 //Array Bilder
-bilder1[0] = "url('Bild1/Bild1_1.png')";
-bilder1[1] = "url('Bild1/Bild1_2.png')";
-bilder1[2] = "url('Bild1/Bild1_3.png')";
-bilder1[3] = "url('Bild1/Bild1_4.png')";
+// bilder1[0] = "url('Bild1/Bild1_1.png')";
+// bilder1[1] = "url('Bild1/Bild1_2.png')";
+// bilder1[2] = "url('Bild1/Bild1_3.png')";
+// bilder1[3] = "url('Bild1/Bild1_4.png')";
 
-bilder2[0] = "url('Bild2/Bild2_1.png')";
-bilder2[1] = "url('Bild2/Bild2_2.png')";
-bilder2[2] = "url('Bild2/Bild2_3.png')";
-bilder2[3] = "url('Bild2/Bild2_4.png')";
+// bilder2[0] = "url('Bild2/Bild2_1.png')";
+// bilder2[1] = "url('Bild2/Bild2_2.png')";
+// bilder2[2] = "url('Bild2/Bild2_3.png')";
+// bilder2[3] = "url('Bild2/Bild2_4.png')";
 
-bilder3[0] = "url('Bild3/Bild3_1.png')";
-bilder3[1] = "url('Bild3/Bild3_2.png')";
-bilder3[2] = "url('Bild3/Bild3_3.png')";
-bilder3[3] = "url('Bild3/Bild3_4.png')";
+// bilder3[0] = "url('Bild3/Bild3_1.png')";
+// bilder3[1] = "url('Bild3/Bild3_2.png')";
+// bilder3[2] = "url('Bild3/Bild3_3.png')";
+// bilder3[3] = "url('Bild3/Bild3_4.png')";
 
-bilder4[0] = "url('Bild4/Bild3_1.png')";
-bilder4[1] = "url('Bild4/Bild3_2.png')";
-bilder4[2] = "url('Bild4/Bild3_3.png')";
-bilder4[3] = "url('Bild4/Bild3_4.png')";
+// bilder4[0] = "url('Bild4/Bild3_1.png')";
+// bilder4[1] = "url('Bild4/Bild3_2.png')";
+// bilder4[2] = "url('Bild4/Bild3_3.png')";
+// bilder4[3] = "url('Bild4/Bild3_4.png')";
 
 
 let actTextfeld = col1text1;
@@ -200,17 +200,7 @@ socket.on('serverEvent', function (message) {
     }
 
     if (message.type == 'imageChange') {
-
-        document.getElementById("col"+message.bildID+"bild").style.backgroundImage = "bilder"+message.bildID[message.imageIndex];
-
-
-
-
-
-    //     .style.backgroundImage = bilder1[message.imageIndex];
-    //     box2.style.backgroundImage = bilder2[message.imageIndex];
-    //     box3.style.backgroundImage = bilder3[message.imageIndex];
-    //     box4.style.backgroundImage = bilder4[message.imageIndex];
+        document.getElementById("bild"+message.bildID).style.backgroundImage = `url("images/Bild${message.bildID}_${message.imageIndex}.png")`;
     }
 
 });
