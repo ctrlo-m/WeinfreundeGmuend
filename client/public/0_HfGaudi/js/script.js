@@ -108,10 +108,10 @@ col4textfeld1.addEventListener("click", function(e) {
 actTextfeld = col4head1;
 });
 col4textfeld2.addEventListener("click", function(e) {
-actTextfeld = col4head2;
+actTextfeld = col4text1;
 });
 col4textfeld3.addEventListener("click", function(e) {
-actTextfeld = col4text1;
+actTextfeld = col4head2;
 });
 col4textfeld4.addEventListener("click", function(e) {
 actTextfeld = col4text2;
