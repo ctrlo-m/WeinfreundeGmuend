@@ -7,9 +7,9 @@ body {
 .header {
     display: flex;
     background-color: #F5F5F5;
-    padding: 30px 30px 30px 30px;
+    padding: 50px 30px 30px 30px;
     margin: 0 0 16px 0;
-    height: 200px;
+    height: 120px;
 }
 
 .container {
@@ -18,25 +18,33 @@ body {
     padding: 30px 30px 30px 30px;
 }
 
+.b-box-1 {
+    margin-bottom: 20px;
+}
+
+.b-box-2 {
+    margin-bottom: 20px;
+}
+
 .col-1 {
     margin: 10px 10px 10px 10px;
+    height: 864px;
     width: 16.6666%;
 }
 
 .col-2 {
     margin: 10px 10px 10px 10px;
+    height: 864px;
     width: 33.3333%;
 }
 
-div.container>.col-1 {
+div.header>.col-1 {
     margin: 10px 10px 10px 10px;
-    height: 864px;
     width: 16.6666%;
 }
 
-div.container>.col-2 {
+div.header>.col-2 {
     margin: 10px 10px 10px 10px;
-    height: 864px;
     width: 33.3333%;
 }
 
