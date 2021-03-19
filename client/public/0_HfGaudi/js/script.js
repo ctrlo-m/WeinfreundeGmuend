@@ -5,7 +5,8 @@ socket.on('connected', function (msg) {
 });
 
 
-
+let randomHue = Math.round(Math.random() * 360);
+let myColor = "hsl(" + randomHue + ", 100%, 50%)";
 // let headline2 = document.getElementById("col1con1")
 
 let col1textfeld1 = document.getElementById("col1con1");
