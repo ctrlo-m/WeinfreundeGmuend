@@ -46,12 +46,15 @@ socket.emit('serverEvent', {type:'imageLoad', bildID: 1 , imageIndex:imgOnLoad1}
 
 let imgOnLoad2 = Math.round(Math.random() * 3);
 document.getElementById("bild2").style.backgroundImage = `url("images/Bild2_${imgOnLoad2}.png")`;
+socket.emit('serverEvent', {type:'imageLoad', bildID: 2 , imageIndex:imgOnLoad2});
 
 let imgOnLoad3 = Math.round(Math.random() * 3);
 document.getElementById("bild3").style.backgroundImage = `url("images/Bild3_${imgOnLoad3}.png")`;
+socket.emit('serverEvent', {type:'imageLoad', bildID: 3 , imageIndex:imgOnLoad3});
 
 let imgOnLoad4 = Math.round(Math.random() * 3);
 document.getElementById("bild4").style.backgroundImage = `url("images/Bild4_${imgOnLoad4}.png")`;
+socket.emit('serverEvent', {type:'imageLoad', bildID: 4 , imageIndex:imgOnLoad4});
 
 console.log(imgOnLoad1)
 
