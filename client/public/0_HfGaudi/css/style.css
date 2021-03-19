@@ -5,6 +5,7 @@ body {
 }
 
 .header {
+    display: flex;
     background-color: #F5F5F5;
     padding: 30px 30px 30px 30px;
     margin: 0 0 16px 0;
@@ -17,17 +18,23 @@ body {
     padding: 30px 30px 30px 30px;
 }
 
-.row {
-    
+.col-1 {
+    margin: 10px 10px 10px 10px;
+    width: 16.6666%;
 }
 
-.col-1 {
+.col-2 {
+    margin: 10px 10px 10px 10px;
+    width: 33.3333%;
+}
+
+div.container>.col-1 {
     margin: 10px 10px 10px 10px;
     height: 864px;
     width: 16.6666%;
 }
 
-.col-2 {
+div.container>.col-2 {
     margin: 10px 10px 10px 10px;
     height: 864px;
     width: 33.3333%;
@@ -53,7 +60,6 @@ h1 {
     font-family: 'Roboto', Sans-Serif; 
     font-size: 120px;
     font-weight: 600;
-    /* line-height: 130%; */
     margin: 0;
 }
 
@@ -63,6 +69,7 @@ h2 {
     font-size: 24px;
     font-weight: 500;
     line-height: 130%;
+    margin-top: 0;
 }
 
 #h1-sub {
