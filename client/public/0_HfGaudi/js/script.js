@@ -9,6 +9,7 @@ let randomHue = Math.round(Math.random() * 360);
 let myColor = "hsl(" + randomHue + ", 100%, 50%)";
 // let headline2 = document.getElementById("col1con1")
 
+let imageIndex
 let col1textfeld1 = document.getElementById("col1con1");
 let col1textfeld2 = document.getElementById("col1con2");
 let col1bild = document.getElementById("bild1");
@@ -133,30 +134,24 @@ col1bild.addEventListener("click", function(e){
 });
 
 col2bild.addEventListener("click", function(e){
+    let i = Math.round(Math.random() * 3);
+    console.log(i)
 
-    let j = Math.round(Math.random() * 3);
-
-    console.log(j)
-
-    socket.emit('serverEvent', {type:'imageChange', bildID: 2, imageIndex:j});
+    socket.emit('serverEvent', {type:'imageChange', bildID: 2, imageIndex:i});
 });
 
 col3bild.addEventListener("click", function(e){
+    let i = Math.round(Math.random() * 3);
+    console.log(i)
 
-    let k = Math.round(Math.random() * 3);
-
-    console.log(k)
-
-    socket.emit('serverEvent', {type:'imageChange', bildID: 3, imageIndex:k});
+    socket.emit('serverEvent', {type:'imageChange', bildID: 3, imageIndex:i});
 });
 
 col4bild.addEventListener("click", function(e){
+    let i = Math.round(Math.random() * 3);
+    console.log(i)
 
-    let l = Math.round(Math.random() * 3);
-
-    console.log(l)
-
-    socket.emit('serverEvent', {type:'imageChange', bildID: 4, imageIndex:l});
+    socket.emit('serverEvent', {type:'imageChange', bildID: 4, imageIndex:i});
 });
 
 
