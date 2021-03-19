@@ -5,36 +5,41 @@ socket.on('connected', function (msg) {
 });
 
 
-let headline1 = document.getElementById("h1-sub")
+
 // let headline2 = document.getElementById("col1con1")
-let textfeld1 = document.getElementById("col1con1");
-let textfeld2 = document.getElementById("col1con2");
 
-let textfeld3 = document.getElementById("col2con1");
-let textfeld4 = document.getElementById("col2con2");
-let textfeld5 = document.getElementById("col2con3");
+let col1textfeld1 = document.getElementById("col1con1");
+let col1textfeld2 = document.getElementById("col1con2");
+let col1bild = document.getElementById("bild1");
+let col1head = document.getElementById("col1head1")
+let col1text1 = document.getElementById("col1text1");
 
-let textfeld6 = document.getElementById("col3con1");
-let textfeld7 = document.getElementById("col3con2");
+let col2textfeld1 = document.getElementById("col2con1");
+let col2textfeld2 = document.getElementById("col2con2");
+let col2textfeld3 = document.getElementById("col2con3");
+let col2head = document.getElementById("col2head1");
+let col2bild = document.getElementById("bild2");
+let col2text1 = document.getElementById("col2text1");
+let col2text2 = document.getElementById("col2text2");
 
-let textfeld8 = document.getElementById("col4con1");
+let col3textfeld1 = document.getElementById("col3con1");
+let col3textfeld2 = document.getElementById("col3con2");
+let col3head = document.getElementById("col3head1");
+let col3text = document.getElementById("col3text1")
+let col3bild = document.getElementById("bild3")
 
-let textfeld9 = document.getElementById("col3con2");
+let col4textfeld1 = document.getElementById("col4con1");
+let col4textfeld2 = document.getElementById("col4con2");
+let col4textfeld3 = document.getElementById("col4con3");
+let col4textfeld4 = document.getElementById("col4con4");
+let col4head1 = document.getElementById("col4head1")
+let col4head2 = document.getElementById("col4head2")
+let col4text1 = document.getElementById("col4text1")
+let col4text2 = document.getElementById("col4text2")
+let col4bild = document.getElementById("bild4")
 
 
-
-
-// let colP1 = document.getElementById("col-p1");
-// let colP2 = document.getElementById("col-p2");
-
-
-
-
-
-let box1 = document.getElementById("box1");
-let box2 = document.getElementById("box2");
-
-let actTextfeld = textfeld1;
+let actTextfeld = col1text1;
 
 let bilder1 = new Array(); 
 let bilder2 = new Array(); 
@@ -42,51 +47,70 @@ let bilder3 = new Array();
 let bilder4 = new Array(); 
 
 //Array Bilder
-bilder1[0] = "url('Bild1.jpeg')";
-bilder1[1] = "url('Bild2.jpeg')";
-bilder1[2] = "url('Bild3.jpeg')";
+bilder1[0] = "url('Bild1/Bild1_1.png')";
+bilder1[1] = "url('Bild1/Bild1_2.png')";
+bilder1[2] = "url('Bild1/Bild1_3.png')";
+bilder1[3] = "url('Bild1/Bild1_4.png')";
 
-bilder2[0] = "url('Bild1.jpeg')";
-bilder2[1] = "url('Bild2.jpeg')";
-bilder2[2] = "url('Bild3.jpeg')";
+bilder2[0] = "url('Bild2/Bild2_1.png')";
+bilder2[1] = "url('Bild2/Bild2_2.png')";
+bilder2[2] = "url('Bild2/Bild2_3.png')";
+bilder2[3] = "url('Bild2/Bild2_4.png')";
 
-bilder3[0] = "url('Bild1.jpeg')";
-bilder3[1] = "url('Bild2.jpeg')";
-bilder3[2] = "url('Bild3.jpeg')";
+bilder3[0] = "url('Bild3/Bild3_1.png')";
+bilder3[1] = "url('Bild3/Bild3_2.png')";
+bilder3[2] = "url('Bild3/Bild3_3.png')";
+bilder3[3] = "url('Bild3/Bild3_4.png')";
 
-bilder4[0] = "url('Bild1.jpeg')";
-bilder4[1] = "url('Bild2.jpeg')";
-bilder4[2] = "url('Bild3.jpeg')";
+bilder4[0] = "url('Bild4/Bild3_1.png')";
+bilder4[1] = "url('Bild4/Bild3_2.png')";
+bilder4[2] = "url('Bild4/Bild3_3.png')";
+bilder4[3] = "url('Bild4/Bild3_4.png')";
+
 
 //Textfeld Events
-headline1.addEventListener("click", function(e) {
-    actTextfeld = headline1;
+
+//COL1
+col1textfeld1.addEventListener("click", function(e) {
+    actTextfeld = col1head;
 });
-headline2.addEventListener("click", function(e) {
-    actTextfeld = headline2;
-});
-colP1.addEventListener("click", function(e) {
-  actTextfeld = textfeld1;
-});
-colP2.addEventListener("click", function(e) {
-  actTextfeld = textfeld2;
+col1textfeld2.addEventListener("click", function(e) {
+    actTextfeld = col1text1;
 });
 
-textfeld2.addEventListener("click", function(e) {
-    actTextfeld = textfeld2;
-  });
-
-textfeld1.addEventListener("click", function(e) {
-actTextfeld = textfeld1;
+//COL2
+col2textfeld1.addEventListener("click", function(e) {
+  actTextfeld = col2head;
+});
+col2textfeld2.addEventListener("click", function(e) {
+  actTextfeld = col2text1;
+});
+col2textfeld3.addEventListener("click", function(e) {
+actTextfeld = col2text2;
 });
 
-textfeld3.addEventListener("click", function(e) {
-    actTextfeld = textfeld3;
-  });
-
-textfeld4.addEventListener("click", function(e) {
-actTextfeld = textfeld4;
+//COL3
+col3textfeld1.addEventListener("click", function(e) {
+actTextfeld = col3head;
 });
+col3textfeld2.addEventListener("click", function(e) {
+actTextfeld = col3text;
+});
+
+//COL4
+col4textfeld1.addEventListener("click", function(e) {
+actTextfeld = col4head1;
+});
+col4textfeld2.addEventListener("click", function(e) {
+actTextfeld = col4head2;
+});
+col4textfeld3.addEventListener("click", function(e) {
+actTextfeld = col4text1;
+});
+col4textfeld4.addEventListener("click", function(e) {
+actTextfeld = col4text2;
+});
+    
 
   window.addEventListener("keydown", keydownHandler);
   
@@ -178,4 +202,5 @@ socket.on('serverEvent', function (message) {
 
 });
 
-});
+//});
+
