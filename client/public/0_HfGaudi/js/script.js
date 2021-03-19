@@ -42,10 +42,10 @@ let col4bild = document.getElementById("bild4")
 
 
 
-let bilder1 = new Array(); 
-let bilder2 = new Array(); 
-let bilder3 = new Array(); 
-let bilder4 = new Array(); 
+// let bilder1 = new Array(); 
+// let bilder2 = new Array(); 
+// let bilder3 = new Array(); 
+// let bilder4 = new Array(); 
 
 //Array Bilder
 // bilder1[0] = "url('Bild1/Bild1_1.png')";
