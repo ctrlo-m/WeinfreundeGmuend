@@ -56,6 +56,8 @@ let imgOnLoad4 = Math.round(Math.random() * 3);
 document.getElementById("bild4").style.backgroundImage = `url("images/Bild4_${imgOnLoad4}.png")`;
 socket.emit('serverEvent', {type:'imageLoad', bildID: 4 , imageIndex:imgOnLoad4});
 
+console.log(imgOnLoad1)
+
 // let bilder1 = new Array(); 
 // let bilder2 = new Array(); 
 // let bilder3 = new Array(); 
@@ -84,8 +86,6 @@ socket.emit('serverEvent', {type:'imageLoad', bildID: 4 , imageIndex:imgOnLoad4}
 
 
 let actTextfeld = col1text1;
-
-
 
 
 
@@ -132,6 +132,46 @@ actTextfeld = col4head2;
 col4textfeld4.addEventListener("click", function(e) {
 actTextfeld = col4text2;
 });
+
+function anzeigen(a){ 
+    // if(document.getElementById(a).style.display == 'block') {
+        document.getElementById(a).style.display='none'; 
+        console.log("anzeigen")
+    // }
+    // else document.getElementById(das).style.display='none';
+}
+
+col1textfeld1.addEventListener("click", function(e){ 
+    anzeigen("spancol1head1")
+})
+col1textfeld2.addEventListener("click", function(e){ 
+    anzeigen("spancol1text1")
+})
+col2textfeld1.addEventListener("click", function(e){ 
+    anzeigen("spancol1head1")
+})
+col2textfeld2.addEventListener("click", function(e){ 
+    anzeigen("spancol1head1")
+})
+col2textfeld3.addEventListener("click", function(e){ 
+    anzeigen("spancol1head1")
+})
+col3textfeld1.addEventListener("click", function(e){ 
+    anzeigen("spancol1head1")
+})
+col3textfeld2.addEventListener("click", function(e){ 
+    anzeigen("spancol1head1")
+})
+col4textfeld1.addEventListener("click", function(e){ 
+    anzeigen("spancol1head1")
+})
+col4textfeld2.addEventListener("click", function(e){ 
+    anzeigen("spancol1head1")
+})
+col4textfeld3.addEventListener("click", function(e){ 
+    anzeigen("spancol1head1")
+})
+
 
 window.addEventListener("keydown", keydownHandler);
   
@@ -205,7 +245,7 @@ socket.on('serverEvent', function (message) {
 
     if (message.type == 'imageLoad') {
         document.getElementById("bild"+message.bildID).style.backgroundImage = `url("images/Bild${message.bildID}_${message.imageIndex}.png")`;
-        // console.log(message.imageIndex)
+        console.log(message.imageIndex)
     }
 
     if (message.type == 'imageChange') {
