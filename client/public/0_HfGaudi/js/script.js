@@ -17,11 +17,20 @@ let textfeld5 = document.getElementById("col2con3");
 let textfeld6 = document.getElementById("col3con1");
 let textfeld7 = document.getElementById("col3con2");
 
-let textfeld8 = document.getElementById("col3con2");
+let textfeld8 = document.getElementById("col4con1");
 
-let textfeld8 = document.getElementById("col3con2");
+let textfeld9 = document.getElementById("col3con2");
+
+
+
+
 // let colP1 = document.getElementById("col-p1");
 // let colP2 = document.getElementById("col-p2");
+
+
+
+
+
 let box1 = document.getElementById("box1");
 let box2 = document.getElementById("box2");
 
