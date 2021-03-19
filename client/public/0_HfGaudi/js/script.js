@@ -40,7 +40,20 @@ let col4text1 = document.getElementById("col4text1")
 let col4text2 = document.getElementById("col4text2")
 let col4bild = document.getElementById("bild4")
 
+let imgOnLoad1 = Math.round(Math.random() * 3);
+document.getElementById("bild1").style.backgroundImage = `url("images/Bild1_${imgOnLoad1}.png")`;
+socket.emit('serverEvent', {type:'imageLoad', bildID: 1 , imageIndex:imgOnLoad1});
 
+let imgOnLoad2 = Math.round(Math.random() * 3);
+document.getElementById("bild2").style.backgroundImage = `url("images/Bild2_${imgOnLoad2}.png")`;
+
+let imgOnLoad3 = Math.round(Math.random() * 3);
+document.getElementById("bild3").style.backgroundImage = `url("images/Bild3_${imgOnLoad3}.png")`;
+
+let imgOnLoad4 = Math.round(Math.random() * 3);
+document.getElementById("bild4").style.backgroundImage = `url("images/Bild4_${imgOnLoad4}.png")`;
+
+console.log(imgOnLoad1)
 
 // let bilder1 = new Array(); 
 // let bilder2 = new Array(); 
@@ -124,33 +137,27 @@ actTextfeld = col4text2;
 
 // Bilder Events
 col1bild.addEventListener("click", function(e){
-
     let i = Math.round(Math.random() * 3);
-
     console.log(i)
     console.log("Bild 1 klick")
-
     socket.emit('serverEvent', {type:'imageChange', bildID: 1 , imageIndex:i});
 });
 
 col2bild.addEventListener("click", function(e){
     let i = Math.round(Math.random() * 3);
     console.log(i)
-
     socket.emit('serverEvent', {type:'imageChange', bildID: 2, imageIndex:i});
 });
 
 col3bild.addEventListener("click", function(e){
     let i = Math.round(Math.random() * 3);
     console.log(i)
-
     socket.emit('serverEvent', {type:'imageChange', bildID: 3, imageIndex:i});
 });
 
 col4bild.addEventListener("click", function(e){
     let i = Math.round(Math.random() * 3);
     console.log(i)
-
     socket.emit('serverEvent', {type:'imageChange', bildID: 4, imageIndex:i});
 });
 
@@ -192,6 +199,11 @@ socket.on('serverEvent', function (message) {
                 }
             }
         }
+    }
+
+    if (message.type == 'imageLoad') {
+        document.getElementById("bild"+message.bildID).style.backgroundImage = `url("images/Bild${message.bildID}_${message.imageIndex}.png")`;
+        console.log(message.imageIndex)
     }
 
     if (message.type == 'imageChange') {
