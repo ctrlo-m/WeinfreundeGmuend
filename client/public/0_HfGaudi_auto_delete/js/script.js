@@ -133,61 +133,49 @@ col4textfeld4.addEventListener("click", function(e) {
 actTextfeld = col4text2;
 });
 
-function anzeigen(a){ 
-    // if(document.getElementById(a).style.display == 'block') {
-        document.getElementById(a).style.display='none'; 
-        console.log("anzeigen")
-    // }
-    // else document.getElementById(das).style.display='none';
-}
-
 
 // Ausblenden der Platzhalter bei Auswahl
 col1textfeld1.addEventListener("click", function(e){ 
     socket.emit('serverEvent', {type:'deleteText', colID: 1, fieldID: "head1"});
-
-    // anzeigen("span-col1-head1")
-
-    // document.getElementById(XXXXX"XXXXX""PLATZHALTER""XXXXX"XXXXX).style.display = none;
 })
+
 col1textfeld2.addEventListener("click", function(e){ 
-    // anzeigen("span-col1-text1")
     socket.emit('serverEvent', {type:'deleteText', colID: 1, fieldID: "text1"});
 })
+
 col2textfeld1.addEventListener("click", function(e){ 
-    // anzeigen("span-col2-head1")
     socket.emit('serverEvent', {type:'deleteText', colID: 2, fieldID: "head1"});
 })
+
 col2textfeld2.addEventListener("click", function(e){ 
-    // anzeigen("span-col2-text1")
     socket.emit('serverEvent', {type:'deleteText', colID: 2, fieldID: "text1"});
 })
+
 col2textfeld3.addEventListener("click", function(e){ 
-    // anzeigen("span-col2-text2")
     socket.emit('serverEvent', {type:'deleteText', colID: 2, fieldID: "text2"});
 })
+
 col3textfeld1.addEventListener("click", function(e){ 
-    // anzeigen("span-col3-head1")
     socket.emit('serverEvent', {type:'deleteText', colID: 3, fieldID: "head1"});
 })
+
 col3textfeld2.addEventListener("click", function(e){ 
-    // anzeigen("span-col3-text1")
     socket.emit('serverEvent', {type:'deleteText', colID: 3, fieldID: "text1"});
 })
+
 col4textfeld1.addEventListener("click", function(e){ 
-    // anzeigen("span-col4-head1")
     socket.emit('serverEvent', {type:'deleteText', colID: 4, fieldID: "head1"});
 })
+
 col4textfeld2.addEventListener("click", function(e){ 
-    // anzeigen("span-col4-text1")
     socket.emit('serverEvent', {type:'deleteText', colID: 4, fieldID: "text1"});
 })
+
 col4textfeld3.addEventListener("click", function(e){ 
-    // anzeigen("span-col4-head2")
     socket.emit('serverEvent', {type:'deleteText', colID: 4, fieldID: "head2"});
 })
+
 col4textfeld4.addEventListener("click", function(e){ 
-    // anzeigen("span-col4-text2")
     socket.emit('serverEvent', {type:'deleteText', colID: 4, fieldID: "text2"});
 })
 

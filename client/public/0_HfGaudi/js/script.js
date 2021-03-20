@@ -164,6 +164,53 @@ col4bild.addEventListener("click", function(e){
 });
 
 
+// Ausblenden der Platzhalter bei Auswahl
+col1textfeld1.addEventListener("click", function(e){ 
+    socket.emit('serverEvent', {type:'deleteText', colID: 1, fieldID: "head1"});
+})
+
+col1textfeld2.addEventListener("click", function(e){ 
+    socket.emit('serverEvent', {type:'deleteText', colID: 1, fieldID: "text1"});
+})
+
+col2textfeld1.addEventListener("click", function(e){ 
+    socket.emit('serverEvent', {type:'deleteText', colID: 2, fieldID: "head1"});
+})
+
+col2textfeld2.addEventListener("click", function(e){ 
+    socket.emit('serverEvent', {type:'deleteText', colID: 2, fieldID: "text1"});
+})
+
+col2textfeld3.addEventListener("click", function(e){ 
+    socket.emit('serverEvent', {type:'deleteText', colID: 2, fieldID: "text2"});
+})
+
+col3textfeld1.addEventListener("click", function(e){ 
+    socket.emit('serverEvent', {type:'deleteText', colID: 3, fieldID: "head1"});
+})
+
+col3textfeld2.addEventListener("click", function(e){ 
+    socket.emit('serverEvent', {type:'deleteText', colID: 3, fieldID: "text1"});
+})
+
+col4textfeld1.addEventListener("click", function(e){ 
+    socket.emit('serverEvent', {type:'deleteText', colID: 4, fieldID: "head1"});
+})
+
+col4textfeld2.addEventListener("click", function(e){ 
+    socket.emit('serverEvent', {type:'deleteText', colID: 4, fieldID: "text1"});
+})
+
+col4textfeld3.addEventListener("click", function(e){ 
+    socket.emit('serverEvent', {type:'deleteText', colID: 4, fieldID: "head2"});
+})
+
+col4textfeld4.addEventListener("click", function(e){ 
+    socket.emit('serverEvent', {type:'deleteText', colID: 4, fieldID: "text2"});
+})
+
+
+// Tastenanschläge
 function keydownHandler(e) {
     // Prevent browser shortcuts like going back in browser history on backspace
     e.preventDefault();
@@ -179,6 +226,12 @@ function keydownHandler(e) {
 
 // Incoming events 
 socket.on('serverEvent', function (message) {
+
+
+    if (message.type == 'deleteText') {
+        document.getElementById("span-col"+ message.colID + "-" + message.fieldID).style.display = "none";
+        // console.log("span-col"+ message.colID + "-" + message.fieldID)
+    }
 
     if (message.type == 'keyPressed') {
 
@@ -205,7 +258,6 @@ socket.on('serverEvent', function (message) {
 
     if (message.type == 'imageLoad') {
         document.getElementById("bild"+message.bildID).style.backgroundImage = `url("images/Bild${message.bildID}_${message.imageIndex}.png")`;
-        // console.log(message.imageIndex)
     }
 
     if (message.type == 'imageChange') {
