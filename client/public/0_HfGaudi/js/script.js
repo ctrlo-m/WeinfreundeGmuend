@@ -56,6 +56,8 @@ let imgOnLoad4 = Math.round(Math.random() * 3);
 document.getElementById("bild4").style.backgroundImage = `url("images/Bild4_${imgOnLoad4}.png")`;
 socket.emit('serverEvent', {type:'imageLoad', bildID: 4 , imageIndex:imgOnLoad4});
 
+console.log(imgOnLoad1)
+
 // let bilder1 = new Array(); 
 // let bilder2 = new Array(); 
 // let bilder3 = new Array(); 
@@ -84,8 +86,6 @@ socket.emit('serverEvent', {type:'imageLoad', bildID: 4 , imageIndex:imgOnLoad4}
 
 
 let actTextfeld = col1text1;
-
-
 
 
 
@@ -131,36 +131,6 @@ actTextfeld = col4head2;
 });
 col4textfeld4.addEventListener("click", function(e) {
 actTextfeld = col4text2;
-});
-
-window.addEventListener("keydown", keydownHandler);
-  
-
-
-// Bilder Events
-col1bild.addEventListener("click", function(e){
-    let i = Math.round(Math.random() * 3);
-    console.log(i)
-    console.log("Bild 1 klick")
-    socket.emit('serverEvent', {type:'imageChange', bildID: 1 , imageIndex:i});
-});
-
-col2bild.addEventListener("click", function(e){
-    let i = Math.round(Math.random() * 3);
-    console.log(i)
-    socket.emit('serverEvent', {type:'imageChange', bildID: 2, imageIndex:i});
-});
-
-col3bild.addEventListener("click", function(e){
-    let i = Math.round(Math.random() * 3);
-    console.log(i)
-    socket.emit('serverEvent', {type:'imageChange', bildID: 3, imageIndex:i});
-});
-
-col4bild.addEventListener("click", function(e){
-    let i = Math.round(Math.random() * 3);
-    console.log(i)
-    socket.emit('serverEvent', {type:'imageChange', bildID: 4, imageIndex:i});
 });
 
 
@@ -210,7 +180,37 @@ col4textfeld4.addEventListener("click", function(e){
 })
 
 
-// Tastenanschläge
+window.addEventListener("keydown", keydownHandler);
+  
+
+
+// Bilder Events
+col1bild.addEventListener("click", function(e){
+    let i = Math.round(Math.random() * 3);
+    console.log(i)
+    console.log("Bild 1 klick")
+    socket.emit('serverEvent', {type:'imageChange', bildID: 1 , imageIndex:i});
+});
+
+col2bild.addEventListener("click", function(e){
+    let i = Math.round(Math.random() * 3);
+    console.log(i)
+    socket.emit('serverEvent', {type:'imageChange', bildID: 2, imageIndex:i});
+});
+
+col3bild.addEventListener("click", function(e){
+    let i = Math.round(Math.random() * 3);
+    console.log(i)
+    socket.emit('serverEvent', {type:'imageChange', bildID: 3, imageIndex:i});
+});
+
+col4bild.addEventListener("click", function(e){
+    let i = Math.round(Math.random() * 3);
+    console.log(i)
+    socket.emit('serverEvent', {type:'imageChange', bildID: 4, imageIndex:i});
+});
+
+
 function keydownHandler(e) {
     // Prevent browser shortcuts like going back in browser history on backspace
     e.preventDefault();
@@ -227,10 +227,9 @@ function keydownHandler(e) {
 // Incoming events 
 socket.on('serverEvent', function (message) {
 
-
     if (message.type == 'deleteText') {
         document.getElementById("span-col"+ message.colID + "-" + message.fieldID).style.display = "none";
-        // console.log("span-col"+ message.colID + "-" + message.fieldID)
+        console.log("span-col"+ message.colID + "-" + message.fieldID)
     }
 
     if (message.type == 'keyPressed') {
@@ -258,6 +257,7 @@ socket.on('serverEvent', function (message) {
 
     if (message.type == 'imageLoad') {
         document.getElementById("bild"+message.bildID).style.backgroundImage = `url("images/Bild${message.bildID}_${message.imageIndex}.png")`;
+        console.log(message.imageIndex)
     }
 
     if (message.type == 'imageChange') {
