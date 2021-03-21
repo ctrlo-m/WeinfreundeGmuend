@@ -13,21 +13,21 @@ let imageIndex
 let col1textfeld1 = document.getElementById("col1con1");
 let col1textfeld2 = document.getElementById("col1con2");
 let col1bild = document.getElementById("bild1");
-let col1head = document.getElementById("col1head1")
+let col1head1 = document.getElementById("col1head1")
 let col1text1 = document.getElementById("col1text1");
 
 let col2textfeld1 = document.getElementById("col2con1");
 let col2textfeld2 = document.getElementById("col2con2");
 let col2textfeld3 = document.getElementById("col2con3");
-let col2head = document.getElementById("col2head1");
+let col2head1 = document.getElementById("col2head1");
 let col2bild = document.getElementById("bild2");
 let col2text1 = document.getElementById("col2text1");
 let col2text2 = document.getElementById("col2text2");
 
 let col3textfeld1 = document.getElementById("col3con1");
 let col3textfeld2 = document.getElementById("col3con2");
-let col3head = document.getElementById("col3head1");
-let col3text = document.getElementById("col3text1")
+let col3head1 = document.getElementById("col3head1");
+let col3text1 = document.getElementById("col3text1")
 let col3bild = document.getElementById("bild3")
 
 let col4textfeld1 = document.getElementById("col4con1");
@@ -93,44 +93,45 @@ let actTextfeld = col1text1;
 
 //COL1
 col1textfeld1.addEventListener("click", function(e) {
-    actTextfeld = col1head;
+    socket.emit('serverEvent', {type:'changeTextFeld', colID: 1, fieldID: "head1"});
 });
 col1textfeld2.addEventListener("click", function(e) {
-    actTextfeld = col1text1;
+    socket.emit('serverEvent', {type:'changeTextFeld', colID: 1, fieldID: "text1"});
 });
 
 //COL2
 col2textfeld1.addEventListener("click", function(e) {
-  actTextfeld = col2head;
+  socket.emit('serverEvent', {type:'changeTextFeld', colID: 2, fieldID: "head1"});
 });
 col2textfeld2.addEventListener("click", function(e) {
-  actTextfeld = col2text1;
+  socket.emit('serverEvent', {type:'changeTextFeld', colID: 2, fieldID: "text1"});
 });
 col2textfeld3.addEventListener("click", function(e) {
-actTextfeld = col2text2;
+    socket.emit('serverEvent', {type:'changeTextFeld', colID: 2, fieldID: "text2"});
 });
 
 //COL3
 col3textfeld1.addEventListener("click", function(e) {
-actTextfeld = col3head;
+    socket.emit('serverEvent', {type:'changeTextFeld', colID: 3, fieldID: "head1"});
 });
 
 col3textfeld2.addEventListener("click", function(e) {
-actTextfeld = col3text;
+    socket.emit('serverEvent', {type:'changeTextFeld', colID: 3, fieldID: "text1"});
 });
 
 //COL4
 col4textfeld1.addEventListener("click", function(e) {
-actTextfeld = col4head1;
+    socket.emit('serverEvent', {type:'changeTextFeld', colID: 4, fieldID: "head1"});
 });
 col4textfeld2.addEventListener("click", function(e) {
-actTextfeld = col4text1;
+    socket.emit('serverEvent', {type:'changeTextFeld', colID: 4, fieldID: "text1"});
 });
 col4textfeld3.addEventListener("click", function(e) {
-actTextfeld = col4head2;
+    socket.emit('serverEvent', {type:'changeTextFeld', colID: 4, fieldID: "head2"});
 });
 col4textfeld4.addEventListener("click", function(e) {
-actTextfeld = col4text2;
+
+    socket.emit('serverEvent', {type:'changeTextFeld', colID: 4, fieldID: "text2"});
 });
 
 
@@ -181,7 +182,7 @@ col4textfeld4.addEventListener("click", function(e){
 
 
 window.addEventListener("keydown", keydownHandler);
-  
+
 
 
 // Bilder Events
@@ -227,6 +228,11 @@ function keydownHandler(e) {
 // Incoming events 
 socket.on('serverEvent', function (message) {
 
+    if (message.type == 'changeTextFeld') {
+        actTextfeld = document.getElementById("col"+ message.colID + message.fieldID);
+        console.log("col"+ message.colID + message.fieldID)
+    }
+
     if (message.type == 'deleteText') {
         document.getElementById("span-col"+ message.colID + "-" + message.fieldID).style.display = "none";
         console.log("span-col"+ message.colID + "-" + message.fieldID)
@@ -266,5 +272,4 @@ socket.on('serverEvent', function (message) {
 
 });
 
-//});
-
+// });
