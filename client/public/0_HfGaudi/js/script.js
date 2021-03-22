@@ -7,37 +7,25 @@ socket.on('connected', function (msg) {
 
 let randomHue = Math.round(Math.random() * 360);
 let myColor = "hsl(" + randomHue + ", 50%, 60%)";
-// let headline2 = document.getElementById("col1con1")
 
 let imageIndex
 let col1textfeld1 = document.getElementById("col1con1");
 let col1textfeld2 = document.getElementById("col1con2");
 let col1bild = document.getElementById("bild1");
-let col1head1 = document.getElementById("col1head1")
-let col1text1 = document.getElementById("col1text1");
 
 let col2textfeld1 = document.getElementById("col2con1");
 let col2textfeld2 = document.getElementById("col2con2");
 let col2textfeld3 = document.getElementById("col2con3");
-let col2head1 = document.getElementById("col2head1");
 let col2bild = document.getElementById("bild2");
-let col2text1 = document.getElementById("col2text1");
-let col2text2 = document.getElementById("col2text2");
 
 let col3textfeld1 = document.getElementById("col3con1");
 let col3textfeld2 = document.getElementById("col3con2");
-let col3head1 = document.getElementById("col3head1");
-let col3text1 = document.getElementById("col3text1")
 let col3bild = document.getElementById("bild3")
 
 let col4textfeld1 = document.getElementById("col4con1");
 let col4textfeld2 = document.getElementById("col4con2");
 let col4textfeld3 = document.getElementById("col4con3");
 let col4textfeld4 = document.getElementById("col4con4");
-let col4head1 = document.getElementById("col4head1")
-let col4head2 = document.getElementById("col4head2")
-let col4text1 = document.getElementById("col4text1")
-let col4text2 = document.getElementById("col4text2")
 let col4bild = document.getElementById("bild4")
 
 let imgOnLoad1 = Math.round(Math.random() * 3);
@@ -58,38 +46,11 @@ socket.emit('serverEvent', {type:'imageLoad', bildID: 4 , imageIndex:imgOnLoad4}
 
 console.log(imgOnLoad1)
 
-// let bilder1 = new Array(); 
-// let bilder2 = new Array(); 
-// let bilder3 = new Array(); 
-// let bilder4 = new Array(); 
-
-//Array Bilder
-// bilder1[0] = "url('Bild1/Bild1_1.png')";
-// bilder1[1] = "url('Bild1/Bild1_2.png')";
-// bilder1[2] = "url('Bild1/Bild1_3.png')";
-// bilder1[3] = "url('Bild1/Bild1_4.png')";
-
-// bilder2[0] = "url('Bild2/Bild2_1.png')";
-// bilder2[1] = "url('Bild2/Bild2_2.png')";
-// bilder2[2] = "url('Bild2/Bild2_3.png')";
-// bilder2[3] = "url('Bild2/Bild2_4.png')";
-
-// bilder3[0] = "url('Bild3/Bild3_1.png')";
-// bilder3[1] = "url('Bild3/Bild3_2.png')";
-// bilder3[2] = "url('Bild3/Bild3_3.png')";
-// bilder3[3] = "url('Bild3/Bild3_4.png')";
-
-// bilder4[0] = "url('Bild4/Bild3_1.png')";
-// bilder4[1] = "url('Bild4/Bild3_2.png')";
-// bilder4[2] = "url('Bild4/Bild3_3.png')";
-// bilder4[3] = "url('Bild4/Bild3_4.png')";
 
 
 let actTextfeld = col1text1;
 
-
-
-//Textfeld Events
+//TEXTFELD EVENTS -----------------------------------------------------------------
 
 //COL1
 col1textfeld1.addEventListener("click", function(e) {
@@ -185,7 +146,8 @@ window.addEventListener("keydown", keydownHandler);
 
 
 
-// Bilder Events
+// BILDER EVENTS -----------------------------------------------------------------
+
 col1bild.addEventListener("click", function(e){
     let i = Math.round(Math.random() * 3);
     console.log(i)
@@ -225,7 +187,8 @@ function keydownHandler(e) {
 
 
 
-// Incoming events 
+// INCOMING EVENTS ----------------------------------------------------------------- 
+
 socket.on('serverEvent', function (message) {
 
     if (message.type == 'changeTextFeld') {
